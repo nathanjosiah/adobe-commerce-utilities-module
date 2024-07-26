@@ -1,5 +1,5 @@
 # Install
-1. Run `composer require nathanjosiah/generate-admin-endpoints:1.0.0`
+1. Run `composer require nathanjosiah/generate-admin-endpoints:1.1.0`
 
 For cloud, that is sufficient. For local environments you also may need to run:
 1. Run `bin/magento module:enable Nathanjosiah_GenerateAdminEndpoints`

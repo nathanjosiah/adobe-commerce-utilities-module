@@ -8,6 +8,7 @@ use Magento\Framework\Console\Cli;
 use Magento\Webapi\Model\Config as RestConfig;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class GenerateEndpointsCommand extends Command
@@ -50,6 +51,12 @@ class GenerateEndpointsCommand extends Command
     {
         $this->setName('nathanjosiah:generate-admin-rest-endpoints')
             ->setDescription('Generate a list of all admin REST endpoints');
+        $this->addOption(
+            'inverse',
+            'i',
+            InputOption::VALUE_NONE,
+            'Only show non-admin endpoints'
+        );
         parent::configure();
     }
 
@@ -60,12 +67,14 @@ class GenerateEndpointsCommand extends Command
         $routes = $this->restConfig->getServices()['routes'];
         $adminPermissions = $this->getAllAdminPermissions();
         $endpoints = [];
+        $inverse = $input->getOption('inverse');
 
         foreach ($routes as $route => $methods) {
             foreach ($methods as $method => $routeConfig) {
                 if (isset($routeConfig['resources']) && is_array($routeConfig['resources'])) {
                     foreach ($routeConfig['resources'] as $resource => $na) {
-                        if (in_array($resource, $adminPermissions, true)) {
+                        $found = in_array($resource, $adminPermissions, true);
+                        if ($found && !$inverse || !$found && $inverse) {
                             $endpoints[] = strtoupper($method) . ' ' . $route;
                             break;
                         }
