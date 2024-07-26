@@ -1,0 +1,18 @@
+{
+  "name": "nathanjosiah/generate-admin-endpoints",
+  "description": "Module to generate a list of all admin REST endpoints",
+  "require": {
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+  ],
+  "autoload": {
+    "files": [
+      "src/registration.php"
+    ],
+    "psr-4": {
+      "Nathanjosiah\\GenerateAdminEndpoints\\": "src/"
+    }
+  }
+}
