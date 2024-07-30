@@ -1,5 +1,5 @@
 <?php
-namespace Nathanjosiah\GenerateAdminEndpoints\Command;
+namespace Nathanjosiah\Utilities\Command;
 
 use Magento\Framework\Acl\AclResource\ProviderInterface as AclResourceProvider;
 use Magento\Framework\App\Area;

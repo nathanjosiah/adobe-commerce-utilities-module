@@ -3,7 +3,8 @@
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="nathanjosiah:generate-admin-rest-endpoints" xsi:type="object">Nathanjosiah\GenerateAdminEndpoints\Command\GenerateEndpointsCommand</item>
+                <item name="nathanjosiah:generate-admin-rest-endpoints" xsi:type="object">Nathanjosiah\Utilities\Command\GenerateEndpointsCommand</item>
+                <item name="nathanjosiah:get-current-crypt-key" xsi:type="object">Nathanjosiah\Utilities\Command\GetCurrentCryptKeyCommand</item>
             </argument>
         </arguments>
     </type>
